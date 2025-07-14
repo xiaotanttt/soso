@@ -27,22 +27,18 @@ pip install requests web3
 
 **重要**: 脚本需要CF Token服务来处理Cloudflare验证，必须先启动此服务。
 
-#### 方法一: 使用Node.js服务
-```bash
-# 安装依赖
-npm install
 
-# 启动CF clearance scraper服务 (端口3000)
-node index.js
-```
-
-#### 方法二: 使用Docker (推荐)
+#### 方法一：使用Docker
 ```bash
 # 拉取并运行CF Token服务
-docker run -d -p 3000:3000 cf-clearance-scraper
+docker run -d --name cf-scraper -p 3000:3000 \
+  -e PORT=3000 \
+  -e browserLimit=5 \
+  -e timeOut=60000 \
+  zfcsoftware/cf-clearance-scraper:latest
 ```
 
-#### 方法三: 手动启动
+#### 方法二: 手动启动
 如果你有现成的CF Token解决方案，确保在 `localhost:3000` 端口提供服务，接受POST请求：
 ```json
 {
