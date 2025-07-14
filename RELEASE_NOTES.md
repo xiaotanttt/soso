@@ -82,7 +82,7 @@ SoSoValue-Task-Automation/
 ### 1. 克隆项目
 ```bash
 git clone https://github.com/xiaotanttt/soso
-cd SoSoValue-Task-Automation
+cd soso
 ```
 
 ### 2. 自动安装
